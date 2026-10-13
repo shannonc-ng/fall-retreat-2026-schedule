@@ -1,0 +1,11 @@
+{
+  "name": "fall-retreat-2026-schedule",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "start": "bun index.tsx"
+  },
+  "devDependencies": {
+    "@types/bun": "^1.4.3"
+  }
+}
