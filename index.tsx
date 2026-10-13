@@ -967,6 +967,9 @@ details[open] > summary .chev::after, button.card[aria-expanded="true"] .chev::a
       add(slot(2, "11:45"), row("Wed lunch", FLY[n] && FLY[n][7] ? (FLY[n][7].indexOf("Dietary") === 0 ? "None of the options fit your diet. Check with Laura." : FLY[n][7]) : "No order on file. Text Laura."));
       var w1 = openFor(n, "wed1"); add(slot(2, "12:15"), row("Wed 12:15", w1.t, w1.todo));
       add(slot(2, "13:50"), row("Wed 1:50", wed2For(n)));
+      if (leadTeam(n) && !(LEADING[n] || []).some(function (x) { return x[0] === 0 && x[1] === "13:00"; })) {
+        add(slot(0, "13:00"), row("Mon 1:00", "Team Lead Working Time + Lunch, White Pine Parlor 1"));
+      }
       (LEADING[n] || []).forEach(function (x) {
         var r = row(DAYS[x[0]].dow + " " + fmt(mins(x[1]), false), x[2]);
         r.lastChild.className = "leadrow";
