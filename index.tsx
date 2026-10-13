@@ -242,7 +242,7 @@ details[open] > summary .chev::after, button.card[aria-expanded="true"] .chev::a
 .sign { display: flex; flex-wrap: wrap; align-items: center; gap: 8px 10px; margin-top: 8px; }
 .sign .cnt { font-size: .82rem; color: var(--g5); }
 .sign .mine { font-size: .82rem; color: var(--acid); font-weight: 700; }
-.who { width: 100%; margin: 2px 0 0; padding: 8px 10px; list-style: none; background: var(--g1); border-radius: 8px; font-size: .84rem; color: var(--g5); columns: 2; column-gap: 12px; }
+.goinglist { width: 100%; margin: 2px 0 0; padding: 8px 10px; list-style: none; background: var(--g1); border-radius: 8px; font-size: .84rem; color: var(--g5); columns: 2; column-gap: 12px; }
 .signnote { padding: 10px 14px; font-size: .86rem; color: #F2C98A; border-bottom: 1px solid var(--g3); }
 .pick { position: fixed; inset: 0; z-index: 20; background: rgba(0,0,0,.7); display: grid; align-items: end; justify-items: center; }
 .pick-in { width: 100%; max-width: 520px; background: var(--g2); border-top: 2px solid #41A4D3; border-radius: 16px 16px 0 0; padding: 18px 16px calc(18px + env(safe-area-inset-bottom, 0px)); display: grid; gap: 10px; }
@@ -1083,7 +1083,7 @@ details[open] > summary .chev::after, button.card[aria-expanded="true"] .chev::a
         var btn = el("button", "tbtn"); btn.type = "button";
         var cnt = el("span", "cnt");
         var whoBtn = el("button", "linkbtn", "See who"); whoBtn.type = "button";
-        var who = el("ul", "who"); who.hidden = true;
+        var who = el("ul", "goinglist"); who.hidden = true;
         var sug = el("span", "sugtag", "Suggested for you"); sug.hidden = true;
         whoBtn.addEventListener("click", function () { who.hidden = !who.hidden; whoBtn.textContent = who.hidden ? "See who" : "Hide"; });
         btn.addEventListener("click", function () {
