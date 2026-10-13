@@ -236,6 +236,7 @@ details[open] > summary .chev::after, button.card[aria-expanded="true"] .chev::a
 .plan-row { display: grid; grid-template-columns: 6.6rem minmax(0, 1fr); gap: 10px; font-size: .9rem; color: var(--g6); }
 .plan-row i { font-style: normal; color: var(--acid); font-family: var(--font-head); text-transform: uppercase; letter-spacing: .12em; font-size: .64rem; padding-top: 3px; }
 .plan-row .todo { color: #F2C98A; }
+.plan-row .leadrow { color: var(--white); font-weight: 700; }
 .tbtn { justify-self: start; border: 1px solid #41A4D3; background: #0E3041; color: var(--white); border-radius: 999px; padding: 6px 12px; font-family: var(--font-head); text-transform: uppercase; letter-spacing: .12em; font-size: .64rem; cursor: pointer; }
 .tbtn.solid { background: #41A4D3; color: #000; border-color: #41A4D3; font-weight: 600; }
 .linkbtn { background: none; border: 0; padding: 0; color: var(--acid); font-weight: 600; text-decoration: underline; text-underline-offset: 3px; cursor: pointer; }
@@ -872,7 +873,7 @@ details[open] > summary .chev::after, button.card[aria-expanded="true"] .chev::a
       if (t) s = t.rest + ". You are hosting " + (t.label ? "your " + t.label + " group." : "your team.");
       else { t = memberTeam(n); if (t) s = t.rest + ", with " + teamName(t); }
       if (!s) return UNSURE;
-      if (mine) { var c = carMates(n); if (c.length) s += ". Offered to drive: " + c.join(", "); }
+      if (mine) { var c = carMates(n); if (c.length) s = s.replace(/\.$/, "") + ". Offered to drive: " + c.join(", "); }
       return s;
     }
     function tue1For(n, mine) {
@@ -932,21 +933,48 @@ details[open] > summary .chev::after, button.card[aria-expanded="true"] .chev::a
       try { t.scrollIntoView({ behavior: "smooth", block: "start" }); } catch (e) { t.scrollIntoView(true); }
     }
     var NOFLY = "Not on file. Text Laura.";
+    /* sessions people lead, host, speak at, or sit on the panel for: name: [[day index (0 Mon to 3 Thu), start, what]] */
+    var LEADING = {
+      "Doug Melder": [[0, "13:00", "You are leading Team Lead Working Time + Lunch"], [1, "10:00", "You are on the panel for Vision for the Year Ahead"]],
+      "Tricia Harding": [[0, "13:00", "You are leading Team Lead Working Time + Lunch"], [1, "10:00", "You are giving the keynote for Vision for the Year Ahead"]],
+      "Dan Leffelaar": [[0, "13:00", "You are leading Team Lead Working Time + Lunch"], [1, "12:00", "You are on the Becoming a Million Dollar Coach Panel"], [2, "09:00", "You are giving the keynote for Nobility + the Next Decade"]],
+      "Jason Jaggard": [[0, "13:00", "You are leading Team Lead Working Time + Lunch"], [1, "12:00", "You are on the Becoming a Million Dollar Coach Panel"], [2, "09:00", "You are hosting the live Q&A for Nobility + the Next Decade"]],
+      "Houston Bradley": [[1, "07:00", "You are leading Novus Global Run Club (optional)"]],
+      "Jean-Marie Jobs": [[1, "08:00", "You are leading the Breakfast Session: T3 and the Difference Between Coaching and Training"], [2, "10:30", "You are leading Ownership + Complaints"]],
+      "Joseph Barkley": [[1, "09:00", "You are leading 10th Anniversary"]],
+      "David Miller": [[1, "10:00", "You are on the panel for Vision for the Year Ahead"]],
+      "Jaralyn Monkman": [[1, "10:00", "You are on the panel for Vision for the Year Ahead"]],
+      "Charise Proctor": [[1, "10:00", "You are on the panel for Vision for the Year Ahead"]],
+      "Jon Roberts": [[1, "12:00", "You are hosting the Becoming a Million Dollar Coach Panel"]],
+      "Andrew Ladd": [[2, "10:30", "You are leading Ownership + Complaints"]],
+      "Rachel Baggech": [[2, "15:00", "You are leading Long Hike + Climb (optional)"]],
+      "Sean Patton": [[3, "09:00", "You are speaking at Speakers Salon: Nobility in Practice"]],
+      "Kristin Frade": [[3, "09:00", "You are speaking at Speakers Salon: Nobility in Practice"]]
+    };
+    function slot(d, hhmm) { return 1000 + d * 2000 + mins(hhmm); }
     function planList(n, mine) {
       var ul = el("ul", "plan");
       var head = el("li", "plan-name"); head.appendChild(el("b", null, n)); ul.appendChild(head);
       if (mine && ARCS && typeOf(n)) ul.appendChild(row("Your path", TYPES[typeOf(n)].label));
       ul.appendChild(row("Roommate", roommate(n)));
-      ul.appendChild(row("Arrive", flyText(n, "a") || NOFLY, !FLY[n]));
-      if (mine) { var na = near(n, "a"); if (na.length) ul.appendChild(row("Ride buddies", "Landing within an hour of you: " + na.slice(0, 6).join(", "))); }
-      ul.appendChild(row("Tue 1:00", tue1For(n, mine)));
-      var t2 = openFor(n, "tue2"); ul.appendChild(row("Tue 2:10", t2.t, t2.todo));
-      ul.appendChild(row("Tue dinner", dinnerFor(n, mine)));
-      var w1 = openFor(n, "wed1"); ul.appendChild(row("Wed 12:15", w1.t, w1.todo));
-      ul.appendChild(row("Wed lunch", FLY[n] && FLY[n][7] ? (FLY[n][7].indexOf("Dietary") === 0 ? "None of the options fit your diet. Check with Laura." : FLY[n][7]) : "No order on file. Text Laura."));
-      ul.appendChild(row("Wed 1:50", wed2For(n)));
-      ul.appendChild(row("Depart", flyText(n, "d") || NOFLY, !FLY[n]));
-      if (mine) { var nd = near(n, "d"); if (nd.length) ul.appendChild(row("Ride buddies", "Flying out within an hour of you: " + nd.slice(0, 6).join(", "))); }
+      var items = [];
+      function add(k, r) { items.push({ k: k, i: items.length, r: r }); }
+      add(0, row("Arrive", flyText(n, "a") || NOFLY, !FLY[n]));
+      if (mine) { var na = near(n, "a"); if (na.length) add(1, row("Ride buddies", "Landing within an hour of you: " + na.slice(0, 6).join(", "))); }
+      add(slot(1, "13:00"), row("Tue 1:00", tue1For(n, mine)));
+      var t2 = openFor(n, "tue2"); add(slot(1, "14:10"), row("Tue 2:10", t2.t, t2.todo));
+      add(slot(1, "17:30"), row("Tue dinner", dinnerFor(n, mine)));
+      add(slot(2, "11:45"), row("Wed lunch", FLY[n] && FLY[n][7] ? (FLY[n][7].indexOf("Dietary") === 0 ? "None of the options fit your diet. Check with Laura." : FLY[n][7]) : "No order on file. Text Laura."));
+      var w1 = openFor(n, "wed1"); add(slot(2, "12:15"), row("Wed 12:15", w1.t, w1.todo));
+      add(slot(2, "13:50"), row("Wed 1:50", wed2For(n)));
+      (LEADING[n] || []).forEach(function (x) {
+        var r = row(DAYS[x[0]].dow + " " + fmt(mins(x[1]), false), x[2]);
+        r.lastChild.className = "leadrow";
+        add(slot(x[0], x[1]), r);
+      });
+      add(99000, row("Depart", flyText(n, "d") || NOFLY, !FLY[n]));
+      if (mine) { var nd = near(n, "d"); if (nd.length) add(99001, row("Ride buddies", "Flying out within an hour of you: " + nd.slice(0, 6).join(", "))); }
+      items.sort(function (a, b) { return a.k - b.k || a.i - b.i; }).forEach(function (x) { ul.appendChild(x.r); });
       if (mine && (t2.cta || w1.cta)) {
         var go = el("li");
         var bt = el("button", "tbtn solid", "Sign up for your breakouts"); bt.type = "button";
