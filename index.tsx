@@ -878,7 +878,7 @@ details[open] > summary .chev::after, button.card[aria-expanded="true"] .chev::a
     function tue1For(n, mine) {
       var l = LEADS.tue1[n]; if (l) return "You are leading " + optTitle("tue1", l);
       var k = TIER[n] || (isNew(n) ? "sub100" : null);
-      if (k) return mine ? optTitle("tue1", k) : "A coach room, set by last year's revenue";
+      if (k) return optTitle("tue1", k);
       if (ROLE[n] === "asst" && ASSISTS[n]) return "Creating a Meta Performance Client Experience, or join " + orList(ASSISTS[n]) + " if they want you in their room";
       if (onFarm(n)) return "Creating a Meta Performance Client Experience";
       return UNSURE;
