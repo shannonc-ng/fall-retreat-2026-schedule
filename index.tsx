@@ -587,7 +587,7 @@ details[open] > summary .chev::after, button.card[aria-expanded="true"] .chev::a
           closer: "What are we now going to do with what we've seen?" },
         { kind: "end", start: "11:00", end: "11:30", title: "Retreat ends. Luggage storage is open until 2:00 PM." },
         { kind: "end", start: "11:30", end: null, title: "Airport rides start leaving from the front drive. Check the departure board in the lobby or use the WhatsApp group to share a ride." },
-        { kind: "session", start: "12:00", end: "14:00", title: "Culture Gym Working Lunch", chips: ["Culture Gym members only", "Location TBA"],
+        { kind: "session", start: "12:00", end: "14:00", title: "Culture Gym Working Lunch", chips: ["Culture Gym members only", "White Pine Parlor 1"],
           desc: "The first in-person Culture Gym meeting of the year. Lunch is provided. Plan to stay for the full meeting and head to the airport at 2:00." }
       ]
     }
@@ -987,7 +987,7 @@ details[open] > summary .chev::after, button.card[aria-expanded="true"] .chev::a
       add(slot(2, "13:50"), row("Wed 1:50", wed2For(n)));
       if (LUNCH_IN.indexOf(n) > -1) add(slot(0, "13:00"), row("Mon 1:00", "Team Lead Working Time + Lunch, White Pine Parlor 1"));
       else if (LUNCH_MAYBE.indexOf(n) > -1) add(slot(0, "13:00"), row("Mon 1:00", "Lunch with the Team Leads, White Pine Parlor 1. Grab lunch and go, or stay for the working time."));
-      if (CULTURE_GYM.indexOf(n) > -1) add(slot(3, "12:00"), row("Thu 12:00", "Culture Gym Working Lunch · Location TBA"));
+      if (CULTURE_GYM.indexOf(n) > -1) add(slot(3, "12:00"), row("Thu 12:00", "Culture Gym Working Lunch · White Pine Parlor 1"));
       var acts = [];
       if (HIKE.indexOf(n) > -1 && n !== "Rachel Baggech") acts.push("Long Hike + Climb with Rachel Baggech. Dress for it and bring water");
       if (RIDE_TUE.indexOf(n) > -1) acts.push("Horseback riding with Wasatch Adventure Group, weather permitting");
