@@ -267,6 +267,12 @@ details[open] > summary .chev::after, button.card[aria-expanded="true"] .chev::a
 .board ul.names li { display: block; }
 .board li.me, .board .mine { color: var(--acid); font-weight: 700; }
 .board small { color: var(--g4); }
+.youwrap { flex-basis: 100%; margin-top: 6px; }
+.youtag { display: inline-block; background: #41A4D3; color: #000; border-radius: 999px; padding: 4px 11px; font-family: var(--font-head); text-transform: uppercase; letter-spacing: .12em; font-size: .62rem; font-weight: 600; line-height: 1.4; }
+.youtag.strong { background: var(--white); font-weight: 800; }
+.opt.mine { box-shadow: inset 3px 0 0 #41A4D3; }
+.opt.mine.leading { box-shadow: inset 3px 0 0 var(--white); }
+.opt.leading .lead { color: var(--white); font-weight: 700; }
 .sugtag { font-size: .7rem; font-weight: 700; color: #000; background: #F2C98A; border-radius: 999px; padding: 2px 9px; }
 .dlist { list-style: none; margin: 0; padding: 0; display: grid; gap: 0; border: 1px solid var(--g3); border-radius: 10px; overflow: hidden; }
 .dlist li { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.15fr); gap: 10px; padding: 8px 11px; font-size: .9rem; border-top: 1px solid var(--g3); }
@@ -944,7 +950,7 @@ details[open] > summary .chev::after, button.card[aria-expanded="true"] .chev::a
     }
     function row(label, text, todo) {
       var r = el("li", "plan-row"); r.appendChild(el("i", null, label));
-      r.appendChild(el("span", todo ? "todo" : null, text)); return r;
+      r.appendChild(el("span", todo ? "todo" : (/You are leading/.test(text) ? "leadrow" : null), text)); return r;
     }
     function goRound(rid) {
       var it = ROUNDS[rid]; if (it._open) it._open(true);
@@ -1187,16 +1193,57 @@ details[open] > summary .chev::after, button.card[aria-expanded="true"] .chev::a
         });
       });
     }
-    function renderTableChips() {
-      DAYS.forEach(function (d) {
-        d.items.forEach(function (it) {
-          if (it.kind !== "main" || !it._chipHost || /GLO BALL/.test(it.title) || !(it.chips || []).some(function (c) { return /Kokopelli Ballroom/.test(c); })) return;
-          var old = it._chipHost.querySelector(".chip.mytable"); if (old) old.remove();
-          if (me && SEATS[me]) it._chipHost.appendChild(el("span", "chip mytable", "Your table: " + SEATS[me]));
+    /* "You are going" / "You are leading this" tags on cards and breakout options */
+    var GOING = { "Team Lead Working Time + Lunch": LUNCH_IN, "Culture Gym Working Lunch": CULTURE_GYM, "Long Hike + Climb": HIKE };
+    function youTag(text, lead) { var w = el("div", "youwrap"); w.appendChild(el("span", lead ? "youtag strong" : "youtag", text)); return w; }
+    function leadSid(n, rid) {
+      if (LEADS[rid] && LEADS[rid][n]) return LEADS[rid][n];
+      if (rid === "wed2") { if (n === "Tricia Harding") return "self"; if (leadTeam(n)) return "teams"; }
+      return null;
+    }
+    function assignedSid(n, rid) {
+      if (rid === "tue1") {
+        var p = pick(n, "tue1"); if (p) return p;
+        var k = TIER[n] || (isNew(n) ? "sub100" : null); if (k) return k;
+        if ((ROLE[n] === "asst" && ASSISTS[n]) || onFarm(n)) return "cx";
+        return null;
+      }
+      if (rid === "wed2") {
+        if (leadTeam(n) || memberTeam(n) || isNew(n)) return "teams";
+        if (onFarm(n)) return "self";
+      }
+      return null;
+    }
+    function renderOptTags() {
+      Object.keys(ROUNDS).forEach(function (rid) {
+        var it = ROUNDS[rid], open = OPEN.indexOf(rid) > -1;
+        var ls = me ? leadSid(me, rid) : null;
+        var gs = me && !ls ? (open ? choiceOf(me, rid) : assignedSid(me, rid)) : null;
+        it.options.forEach(function (o) {
+          var info = it._optNodes[o.sid], oli = info.parentNode;
+          var old = info.querySelector(".youwrap"); if (old) old.remove();
+          oli.className = "opt";
+          if (ls === o.sid) { oli.className = "opt mine leading"; info.appendChild(youTag("You are leading this", true)); }
+          else if (gs === o.sid) { oli.className = "opt mine"; if (!open) info.appendChild(youTag("You are going")); }
         });
       });
     }
-    function renderAll() { renderRows(); renderMe(); renderSearch(); renderTableChips(); }
+    function renderTableChips() {
+      DAYS.forEach(function (d, di) {
+        d.items.forEach(function (it) {
+          if (it.kind === "round" || it.kind === "break" || it.kind === "end" || !it._chipHost) return;
+          var old = it._chipHost.querySelector(".youwrap"); if (old) old.remove();
+          old = it._chipHost.querySelector(".chip.mytable"); if (old) old.remove();
+          if (!me) return;
+          var ld = (LEADING[me] || []).filter(function (x) { return x[0] === di && x[2].indexOf(it.title) > -1; })[0];
+          if (ld) it._chipHost.appendChild(youTag(/on stage/.test(ld[2]) ? "You are on stage" : /^You are on the/.test(ld[2]) ? "You are on the panel" : "You are leading this", true));
+          else if (GOING[it.title] && GOING[it.title].indexOf(me) > -1) it._chipHost.appendChild(youTag("You are going"));
+          if (it.kind === "main" && !/GLO BALL/.test(it.title) && SEATS[me] && (it.chips || []).some(function (c) { return /Kokopelli Ballroom/.test(c); }))
+            it._chipHost.appendChild(el("span", "chip mytable", "Your table: " + SEATS[me]));
+        });
+      });
+    }
+    function renderAll() { renderRows(); renderMe(); renderSearch(); renderTableChips(); renderOptTags(); }
 
     function api(method, body) {
       var opt = { method: method, credentials: "same-origin" };
