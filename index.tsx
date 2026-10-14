@@ -994,9 +994,11 @@ details[open] > summary .chev::after, button.card[aria-expanded="true"] .chev::a
       (LEADING[n] || []).forEach(function (x) { leadAt[x[0] + "|" + x[1]] = true; });
       DAYS.forEach(function (d, di) {
         d.items.forEach(function (it) {
-          if (it.kind !== "main" || /GLO BALL/.test(it.title) || !(it.chips || []).some(function (c) { return /Kokopelli Ballroom/.test(c); })) return;
+          if (it.kind !== "main" || it.title === "Team Dinners") return;
           if (leadAt[di + "|" + it.start]) return;
-          add(slot(di, it.start), row(d.dow + " " + fmt(mins(it.start), false), it.title + (tbl ? " · " + tbl : "")));
+          var place = (it.chips || []).filter(function (c) { return /Ballroom|Lodge/.test(c); })[0] || "";
+          var tabled = /Kokopelli Ballroom/.test(place) && !/GLO BALL/.test(it.title);
+          add(slot(di, it.start), row(d.dow + " " + fmt(mins(it.start), false), it.title + (tabled ? (tbl ? " · " + tbl : "") : (place ? " · " + place : ""))));
         });
       });
       (LEADING[n] || []).forEach(function (x) {
