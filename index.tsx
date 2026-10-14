@@ -369,7 +369,7 @@ details[open] > summary .chev::after, button.card[aria-expanded="true"] .chev::a
       <li><b>Pack</b><span>A warm, packable jacket. Whatever squishes into your bag and keeps you warm. And bring your lanyard with the pins you have earned at past retreats.</span></li>
       <li><b>Monday night</b><span>Warm and casual. Think après-ski or lodge chic. The gondola ride up to Red Pine Lodge takes about 8 minutes and the bar opens outside by the fire pits. If it is too windy or there is lightning, the dinner moves to the Kokopelli Ballroom.</span></li>
       <li><b>Tuesday night</b><span>Casual. Dress for the restaurant you are eating at.</span></li>
-      <li><b>GLO-BALL</b><span>Semi-formal to black-tie optional. Cocktail attire is perfect. If you own a ballgown, this is the night to wear it.</span></li>
+      <li><b>GLO BALL</b><span>Semi-formal to black-tie optional. Cocktail attire is perfect. If you own a ballgown, this is the night to wear it.</span></li>
     </ul>
 
     <h3 class="sub">Food + drinks</h3>
@@ -377,8 +377,8 @@ details[open] > summary .chev::after, button.card[aria-expanded="true"] .chev::a
       <li><b>Breakfast</b><span>On your own each morning. Kimball Junction is a short drive. Have a mini fridge in your room? DoorDash or Instacart can deliver groceries to the hotel. Tuesday's 8:00 AM breakfast session is optional.</span></li>
       <li><b>Coffee</b><span>Coffee, tea, soda, water, and sparkling water are set up by the Kokopelli Ballroom before the morning session each day and stay out until lunch.</span></li>
       <li><b>Lunch</b><span>Provided Tuesday (buffet) and Wednesday (grab-and-go). On Wednesday, grab the boxed lunch you picked on your registration form. Your order is in My Plan. Gluten-free and dairy-free options are labeled. <button type="button" class="linkbtn" id="lunchBtn">See every order</button></span></li>
-      <li><b>Dinner</b><span>Monday is a BBQ buffet at Red Pine Lodge. Tuesday, coaches eat with their teams around Park City and pay for their own dinner. All assistants, ops leaders, and staff eat together at The Farm in Canyons Village. Check My Plan at the top to see where you are going. Wednesday is the GLO-BALL buffet.</span></li>
-      <li><b>Drinks</b><span>Monday is a cash bar. At GLO-BALL you get one drink ticket, then it is a cash bar.</span></li>
+      <li><b>Dinner</b><span>Monday is a BBQ buffet at Red Pine Lodge. Tuesday, coaches eat with their teams around Park City and pay for their own dinner. All assistants, ops leaders, and staff eat together at The Farm in Canyons Village. Check My Plan at the top to see where you are going. Wednesday is the GLO BALL buffet.</span></li>
+      <li><b>Drinks</b><span>Monday is a cash bar. At GLO BALL you get one drink ticket, then it is a cash bar.</span></li>
       <li><b>Bring your ID</b><span>Utah checks ID for everyone ordering alcohol, no matter your age. No ID, no drink.</span></li>
     </ul>
 
@@ -526,7 +526,7 @@ details[open] > summary .chev::after, button.card[aria-expanded="true"] .chev::a
     },
     {
       key: "wed", date: "2026-10-21", dow: "Wed", dayName: "Wednesday", num: "21", title: "What's Next Day",
-      intro: "We turn forward to the next decade, then go back to work on capability and architecture. The night is for GLO-BALL.",
+      intro: "We turn forward to the next decade, then go back to work on capability and architecture. The night is for GLO BALL.",
       items: [
         { kind: "main", start: "09:00", end: "10:15", word: "Envision", title: "Nobility + the Next Decade", chips: [EVERYONE, "Kokopelli Ballroom"],
           who: "Dan keynote", whoMore: "then live Q&A hosted by Jason",
@@ -557,10 +557,10 @@ details[open] > summary .chev::after, button.card[aria-expanded="true"] .chev::a
             { sid: "self", title: "Self-Management for Leaders", lead: "Tricia", for: "All operational leaders",
               what: "A longer-form session on how leaders manage themselves." }
           ] },
-        { kind: "break", start: "14:50", end: "14:50", title: "Rest window. Protected time before GLO-BALL." },
-        { kind: "main", start: "17:45", end: "22:00", word: "Celebrate", title: "GLO-BALL · Dinner + Awards", chips: [EVERYONE, "Kokopelli Ballroom", "Semi-formal"],
+        { kind: "break", start: "14:50", end: "14:50", title: "Rest window. Protected time before GLO BALL." },
+        { kind: "main", start: "17:45", end: "22:00", word: "Celebrate", title: "GLO BALL · Dinner + Awards", chips: [EVERYONE, "Kokopelli Ballroom", "Semi-formal"],
           desc: "Ten years of Novus Global. A night of celebration, community, and awards. Dress is semi-formal to black-tie optional. Cocktail attire is perfect, and if you own a ballgown, wear it. Everyone gets one drink ticket, then it is a cash bar.",
-          steps: [["17:45", "Doors open"], ["18:00", "Dinner"], ["19:15", "Program and awards begin"], ["22:00", "GLO-BALL ends"]] }
+          steps: [["17:45", "Doors open"], ["18:00", "Dinner"], ["19:15", "Program and awards begin"], ["22:00", "GLO BALL ends"]] }
       ]
     },
     {
@@ -984,7 +984,7 @@ details[open] > summary .chev::after, button.card[aria-expanded="true"] .chev::a
       if (HIKE.indexOf(n) > -1 && n !== "Rachel Baggech") acts.push("Long Hike + Climb with Rachel Baggech. Dress for it and bring water");
       if (RIDE_TUE.indexOf(n) > -1) acts.push("Horseback riding with Wasatch Adventure Group, weather permitting");
       if (n !== "Rachel Baggech") add(slot(1, "15:00"), row("Tue 3:00", acts.length ? acts.join(". ") + "." : "Free time until 5:30. Rest, explore, or get outside."));
-      add(slot(2, "14:50"), row("Wed 2:50", "Rest window. Protected time before GLO-BALL."));
+      add(slot(2, "14:50"), row("Wed 2:50", "Rest window. Protected time before GLO BALL."));
       (LEADING[n] || []).forEach(function (x) {
         var r = row(DAYS[x[0]].dow + " " + fmt(mins(x[1]), false), x[2]);
         r.lastChild.className = "leadrow";
