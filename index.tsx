@@ -587,8 +587,8 @@ details[open] > summary .chev::after, button.card[aria-expanded="true"] .chev::a
           closer: "What are we now going to do with what we've seen?" },
         { kind: "end", start: "11:00", end: "11:30", title: "Retreat ends. Luggage storage is open until 2:00 PM." },
         { kind: "end", start: "11:30", end: null, title: "Airport rides start leaving from the front drive. Check the departure board in the lobby or use the WhatsApp group to share a ride." },
-        { kind: "session", start: "12:00", end: "14:00", title: "Culture Gym Working Lunch", chips: ["Culture Gym members only", "White Pine Parlor 1"],
-          desc: "The first in-person Culture Gym meeting of the year. Lunch is provided. Plan to stay for the full meeting and head to the airport at 2:00." }
+        { kind: "session", start: "12:00", end: "13:30", title: "Culture Gym Working Lunch", chips: ["Culture Gym members only", "White Pine Parlor 1"],
+          desc: "The first in-person Culture Gym meeting of the year. Lunch is provided. The meeting wraps at 1:30, and you can leave the hotel for the airport at 2:00." }
       ]
     }
   ];
