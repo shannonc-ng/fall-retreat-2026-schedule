@@ -339,7 +339,7 @@ details[open] > summary .chev::after, button.card[aria-expanded="true"] .chev::a
 
 <section class="wrap myplan" id="me" aria-labelledby="mpTitle">
   <div class="mp-card">
-    <div><h2 id="mpTitle">My Plan</h2><p class="mp-sub">Your roommate, your breakouts, and where you eat Tuesday night.</p></div>
+    <div><h2 id="mpTitle">My Plan</h2><p class="mp-sub">Your whole week, all in one place.</p></div>
     <div id="mpMe"></div>
     <label for="rmq">Look up anyone by first or last name</label>
     <input id="rmq" type="search" autocomplete="off" placeholder="e.g. Megan">
@@ -388,7 +388,7 @@ details[open] > summary .chev::after, button.card[aria-expanded="true"] .chev::a
 
     <h3 class="sub">During the week</h3>
     <ul class="facts">
-      <li><b>My plan</b><span>Your roommate, breakouts, and Tuesday dinner are at the top of the schedule. <button type="button" class="linkbtn" data-go="me">Go to My Plan</button></span></li>
+      <li><b>My plan</b><span>Your whole week is at the top of the schedule. <button type="button" class="linkbtn" data-go="me">Go to My Plan</button></span></li>
       <li><b>Group chat</b><span>Retreat updates, photos, and ride shares happen in the WhatsApp group. <a class="xlink" href="https://chat.whatsapp.com/GL5firby3EM0xZo0OAshH9" target="_blank" rel="noopener">Join the WhatsApp group</a></span></li>
       <li><b>Travel + rooms</b><span>Questions about your room, arrival, or travel go to Laura Vander Neut, our travel advisor. <a class="xlink" href="tel:+13109823513">(310) 982-3513</a></span></li>
       <li><b>Time zone</b><span>Every time on this page is Mountain Time.</span></li>
