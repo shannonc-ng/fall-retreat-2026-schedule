@@ -972,7 +972,6 @@ details[open] > summary .chev::after, button.card[aria-expanded="true"] .chev::a
       var ul = el("ul", "plan");
       var head = el("li", "plan-name"); head.appendChild(el("b", null, n)); ul.appendChild(head);
       ul.appendChild(row("Roommate", roommate(n)));
-      if (SEATS[n]) ul.appendChild(row("Your table", "Table " + SEATS[n] + (SEATS[n] === 1 ? " (speakers table)" : "") + " for main sessions in the Kokopelli Ballroom"));
       var items = [];
       function add(k, r) { items.push({ k: k, i: items.length, r: r }); }
       add(0, row("Arrive", flyText(n, "a") || NOFLY, !FLY[n]));
@@ -990,8 +989,19 @@ details[open] > summary .chev::after, button.card[aria-expanded="true"] .chev::a
       if (RIDE_TUE.indexOf(n) > -1) acts.push("Horseback riding with Wasatch Adventure Group, weather permitting");
       if (n !== "Rachel Baggech") add(slot(1, "15:00"), row("Tue 3:00", acts.length ? acts.join(". ") + "." : "Free time until 5:30. Rest, explore, or get outside."));
       add(slot(2, "14:50"), row("Wed 2:50", "Rest window. Protected time before GLO BALL."));
+      var tbl = SEATS[n] ? "Table " + SEATS[n] + (SEATS[n] === 1 ? " (speakers table)" : "") : "";
+      var leadAt = {};
+      (LEADING[n] || []).forEach(function (x) { leadAt[x[0] + "|" + x[1]] = true; });
+      DAYS.forEach(function (d, di) {
+        d.items.forEach(function (it) {
+          if (it.kind !== "main" || /GLO BALL/.test(it.title) || !(it.chips || []).some(function (c) { return /Kokopelli Ballroom/.test(c); })) return;
+          if (leadAt[di + "|" + it.start]) return;
+          add(slot(di, it.start), row(d.dow + " " + fmt(mins(it.start), false), it.title + (tbl ? " · " + tbl : "")));
+        });
+      });
       (LEADING[n] || []).forEach(function (x) {
-        var r = row(DAYS[x[0]].dow + " " + fmt(mins(x[1]), false), x[2]);
+        var isMain = DAYS[x[0]].items.some(function (it) { return it.kind === "main" && it.start === x[1] && !/GLO BALL/.test(it.title) && (it.chips || []).some(function (c) { return /Kokopelli Ballroom/.test(c); }); });
+        var r = row(DAYS[x[0]].dow + " " + fmt(mins(x[1]), false), x[2] + (isMain && tbl ? " · " + tbl : ""));
         r.lastChild.className = "leadrow";
         add(slot(x[0], x[1]), r);
       });
