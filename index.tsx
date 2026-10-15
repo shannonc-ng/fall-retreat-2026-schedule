@@ -552,7 +552,7 @@ details[open] > summary .chev::after, button.card[aria-expanded="true"] .chev::a
               what: "Practical teaching and application focused on how to use The Work around beliefs." },
             { sid: "belief", room: "Kokopelli Parlor III", title: "Belief Work", lead: "Laura Lyng + Amanda Jaggard", for: "12+ months in the firm with strong soul-line coaching proficiency",
               what: "Recognize when belief work is needed and work through it directly with a client." },
-            { sid: "sprint", room: "White Pine Parlor 1", title: "Sprint Work", lead: "Karina + Tricia", for: "Coaches and leaders with a meaningful priority that needs focused execution",
+            { sid: "sprint", room: "White Pine Parlor 1", title: "Sprint Work", lead: "Karina + Tricia", for: "Coaches who want to use sprints with their clients",
               what: "Designed to help coaches leverage sprint design with their clients." },
             { sid: "mpl", room: "White Pine Parlor 2", title: "Meta Performance Leadership", lead: "Rosie + Dan", for: "Team Leads and operational leaders, plus anyone interested",
               what: "Strengthen leadership through the lens of Meta Performance and leading across the organization." }
