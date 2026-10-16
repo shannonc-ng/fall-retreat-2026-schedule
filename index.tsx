@@ -955,11 +955,13 @@ details[open] > summary .chev::after, button.card[aria-expanded="true"] .chev::a
       if (m === -2 && !no) return d ? dayName(d) + ". Flight not on file yet" : null;
       return (dayName(d) + (m >= 0 ? ", " + fmt(m) : "") + (no ? " · " + no : "")).trim();
     }
+    /* kept off the ride board and other people's ride buddies */
+    var OFFBOARD = ["Jason Jaggard"];
     function near(n, w) {
       var f = FLY[n]; if (!f) return [];
       var di = w === "a" ? 0 : 3, mi = w === "a" ? 1 : 4;
       if (f[mi] < 0) return [];
-      return Object.keys(FLY).filter(function (x) { var g = FLY[x]; return x !== n && g[di] === f[di] && g[mi] >= 0 && Math.abs(g[mi] - f[mi]) <= 60; })
+      return Object.keys(FLY).filter(function (x) { var g = FLY[x]; return x !== n && OFFBOARD.indexOf(x) < 0 && g[di] === f[di] && g[mi] >= 0 && Math.abs(g[mi] - f[mi]) <= 60; })
         .sort(function (a, b) { return Math.abs(FLY[a][mi] - f[mi]) - Math.abs(FLY[b][mi] - f[mi]); })
         .map(function (x) { return x + " (" + fmt(FLY[x][mi]) + ")"; });
     }
@@ -1049,7 +1051,7 @@ details[open] > summary .chev::after, button.card[aria-expanded="true"] .chev::a
     function sortDay(d) { var q = d.replace("?", "").split("/"); return (+q[0]) * 100 + (+q[1]); }
     function board(w) {
       var di = w === "a" ? 0 : 3, mi = w === "a" ? 1 : 4, fi = w === "a" ? 2 : 5, byDay = {};
-      Object.keys(FLY).forEach(function (n) { var f = FLY[n]; if (f[mi] < 0 || !f[di]) return; var k = f[di].replace("?", ""); (byDay[k] = byDay[k] || []).push(n); });
+      Object.keys(FLY).forEach(function (n) { var f = FLY[n]; if (f[mi] < 0 || !f[di] || OFFBOARD.indexOf(n) > -1) return; var k = f[di].replace("?", ""); (byDay[k] = byDay[k] || []).push(n); });
       var wrap = el("div");
       wrap.appendChild(el("h4", null, w === "a" ? "Landing at Salt Lake City" : "Flying out of Salt Lake City"));
       Object.keys(byDay).sort(function (a, b) { return sortDay(a) - sortDay(b); }).forEach(function (d) {
