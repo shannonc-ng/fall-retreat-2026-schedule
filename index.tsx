@@ -142,6 +142,15 @@ details[open] > summary .chev::after, button.card[aria-expanded="true"] .chev::a
 .item h3 { font-size: 1.05rem; font-weight: 700; line-height: 1.3; color: var(--white); }
 .who { font-size: .92rem; font-weight: 600; color: var(--g6); }
 .who span { font-weight: 400; color: var(--g4); }
+details.xtra { margin-top: 4px; }
+details.xtra > summary { cursor: pointer; font-weight: 600; font-size: .9rem; color: var(--blue); list-style: none; }
+details.xtra > summary::-webkit-details-marker { display: none; }
+details.xtra > summary::before { content: "+ "; }
+details.xtra[open] > summary::before { content: "− "; }
+ul.xlist { margin: 6px 0 2px; padding-left: 18px; display: grid; gap: 4px; color: var(--g4); font-size: .9rem; }
+.facts details.xtra { margin-top: 6px; }
+.facts ul.xlist { list-style: disc; }
+.facts ul.xlist li { display: list-item; font-size: .9rem; color: var(--g4); }
 .desc { color: var(--g4); font-size: .95rem; max-width: 62ch; }
 .chips { display: flex; flex-wrap: wrap; gap: 4px 0; align-items: center; font-size: .82rem; color: var(--g4); }
 .chips:empty { display: none; }
@@ -363,30 +372,32 @@ details[open] > summary .chev::after, button.card[aria-expanded="true"] .chev::a
 
     <h3 class="sub">Getting here</h3>
     <ul class="facts">
-      <li><b>Where</b><span>Grand Summit Hotel, Canyons Village, Park City. Main sessions are in the Kokopelli Ballroom.</span></li>
+      <li><b>Where</b><span>Grand Summit Hotel, 4000 Canyons Resort Dr, Park City, UT 84098. Main sessions are in the Kokopelli Ballroom.<details class="xtra"><summary>Finding the meeting rooms</summary><ul class="xlist"><li>Stand in the main lobby facing the front doors. The hallway directly to your right leads to the meeting spaces.</li><li>The Kokopelli Ballroom is at the end of that hall. White Pine Parlors 1 and 2 and Kokopelli Parlor III are along the way.</li></ul></details></span></li>
+      <li><b>Parking</b><span>Free for hotel guests. $25 a day if you are staying offsite.</span></li>
       <li><b>From the airport</b><span>Salt Lake City airport is about 45 minutes away by car. Plan your ride ahead. Lots of people share a rideshare, so post your arrival time in the WhatsApp group to find a ride buddy.</span></li>
       <li><b>Ride board</b><span>Everyone's flight times are in one place, and My Plan shows who lands near you. <button type="button" class="linkbtn" id="rideBtn">Show the ride board</button></span></li>
       <li><b>Check-in</b><span>Welcome table opens Monday at 3:30 PM in the Kokopelli Lobby. Pick up your welcome bag, name tag, and lanyard. Arriving later? They will be at the back of the Kokopelli Ballroom Tuesday morning. Hotel check-in opens at 4:00 PM.</span></li>
-      <li><b>Altitude</b><span>Park City sits around 7,000 feet. Drink more water than you think you need, especially the first day.</span></li>
+      <li><b>Altitude</b><span>Park City sits around 7,000 feet. Drink more water than you think you need, especially the first day.<details class="xtra"><summary>What to expect</summary><ul class="xlist"><li>Coming from lower elevations, you may notice headaches, tiredness, or getting winded faster.</li><li>Take it easy while you adjust. Alcohol hits harder up here.</li><li>The sun is stronger at altitude, so wear sunscreen outside.</li></ul></details></span></li>
     </ul>
 
     <div class="board" id="rides" hidden></div>
 
     <h3 class="sub">Weather + what to wear</h3>
     <ul class="facts">
-      <li><b>Weather</b><span>Sun, rain, and maybe snow if it gets cold enough. Highs in the mid 50s, lows in the 30s and 40s. <a class="xlink" href="https://www.accuweather.com/en/us/park-city/84060/10-day-weather-forecast/341178" target="_blank" rel="noopener">See the 10-day forecast</a></span></li>
+      <li><b>Weather</b><span>Crisp fall weather. Highs in the 50s, lows in the upper 20s to 30s, and rain or early snow is possible. Temperatures swing a lot during the day, so dress in layers and bring a heavier coat for the evenings. <a class="xlink" href="https://www.accuweather.com/en/us/park-city/84060/10-day-weather-forecast/341178" target="_blank" rel="noopener">See the 10-day forecast</a></span></li>
       <li><b>Pack</b><span>A warm, packable jacket. Whatever squishes into your bag and keeps you warm. And bring your lanyard with the pins you have earned at past retreats.</span></li>
-      <li><b>Daytime sessions</b><span>Smart casual on Tuesday and Wednesday. Casual on Thursday, since it is a travel day.</span></li>
+      <li><b>Daytime sessions</b><span>Smart casual on Tuesday and Wednesday: polished but comfortable, like nice jeans or trousers with a sweater, blouse, button-down, or blazer. Casual on Thursday, since it is a travel day.</span></li>
       <li><b>Monday night</b><span>Warm and casual. Think après-ski or lodge chic. The gondola ride up to Red Pine Lodge takes about 8 minutes and the bar opens outside by the fire pits. If it is too windy or there is lightning, the dinner moves to the Kokopelli Ballroom.</span></li>
-      <li><b>Tuesday night</b><span>Casual. Dress for the restaurant you are eating at.</span></li>
+      <li><b>Tuesday night</b><span>Smart casual, same as the daytime sessions.</span></li>
       <li><b>GLO BALL</b><span>Semi-formal to black-tie optional. Cocktail attire is perfect. If you own a ballgown, this is the night to wear it.</span></li>
     </ul>
 
     <h3 class="sub">Food + drinks</h3>
     <ul class="facts">
-      <li><b>Breakfast</b><span>On your own each morning. Kimball Junction is a short drive. Have a mini fridge in your room? DoorDash or Instacart can deliver groceries to the hotel. Tuesday's 8:00 AM breakfast session is optional.</span></li>
+      <li><b>Breakfast</b><span>On your own each morning. In the hotel: First Tracks Café (grab-and-go and coffee) and in-room dining. The café is small, so go early on meeting mornings instead of right before sessions. Tuesday's 8:00 AM breakfast session is optional, so bring your own breakfast to it.<details class="xtra"><summary>More breakfast options</summary><ul class="xlist"><li>The Coffee Bar: walkable, inside Westgate Park City Resort</li><li>On DoorDash, about 2.5 to 3 miles away: Wasatch Bagel Cafe, Hill's Kitchen, Starbucks, Five5eeds, Great Harvest Bread, and Daily Rise Coffee</li><li>Have a mini fridge? DoorDash or Instacart can deliver groceries to the hotel.</li></ul></details></span></li>
+      <li><b>Food at the hotel</b><span>First Tracks Café, in-room dining, and the Red Tail Grill.<details class="xtra"><summary>Hours</summary><ul class="xlist"><li>First Tracks Café: grab-and-go and coffee, 6:30 AM to 2:00 PM daily</li><li>In-room dining: 7:00 to 11:00 AM and 5:00 to 9:00 PM</li><li>Red Tail Grill: 11:30 AM to 9:00 PM. Wednesday is its last day open for the season.</li></ul></details></span></li>
       <li><b>Coffee</b><span>Coffee, tea, soda, water, and sparkling water are set up by the Kokopelli Ballroom before the morning session each day and stay out until lunch.</span></li>
-      <li><b>Lunch</b><span>Provided Tuesday (buffet) and Wednesday (grab-and-go). On Wednesday, grab the boxed lunch you picked on your registration form. Your order is in My Plan. Gluten-free and dairy-free options are labeled. <button type="button" class="linkbtn" id="lunchBtn">See every order</button></span></li>
+      <li><b>Lunch</b><span>Provided Tuesday (buffet) and Wednesday (grab-and-go). On Wednesday, grab the boxed lunch you picked on your registration form. Your order is in My Plan. Gluten-free and dairy-free options are labeled. Tap a lunch in the schedule to see the menu. <button type="button" class="linkbtn" id="lunchBtn">See every order</button></span></li>
       <li><b>Dinner</b><span>Monday is a BBQ buffet at Red Pine Lodge. Tuesday, coaches eat with their teams around Park City and pay for their own dinner. All assistants, ops leaders, and staff eat together at The Farm in Canyons Village. Check My Plan at the top to see where you are going. Wednesday is the GLO BALL buffet.</span></li>
       <li><b>Drinks</b><span>Monday is a cash bar. At GLO BALL you get one drink ticket, then it is a cash bar.</span></li>
       <li><b>Bring your ID</b><span>Utah checks ID for everyone ordering alcohol, no matter your age. No ID, no drink.</span></li>
@@ -394,13 +405,22 @@ details[open] > summary .chev::after, button.card[aria-expanded="true"] .chev::a
 
     <div class="board" id="lunches" hidden></div>
 
+    <h3 class="sub">Free time in Park City</h3>
+    <ul class="facts">
+      <li><b>Olympic Park</b><span>Utah Olympic Park, about 13 minutes by car. Free museums, open 9:00 AM to 6:00 PM.<details class="xtra"><summary>Details</summary><ul class="xlist"><li>The Alf Engen Ski Museum and the 2002 Olympic Winter Games Museum are side by side and free.</li><li>Sports simulators (bobsled, ski jump, powder skiing, mountain biking) start at $6.</li><li>Walk the grounds to see Olympic competition and training areas. If you are lucky, you will catch athletes doing practice jumps into the pool.</li><li>Guided one-hour tour, including the top of the ski jumps: 3:00 PM daily, $22 a person.</li><li>Extreme tubing, ropes course, and zipline are $35 each if they are still open, which depends on the weather.</li></ul></details></span></li>
+      <li><b>Hiking</b><span>Besides the group hike Tuesday afternoon, Park City has trails all around the hotel. Pack sunscreen and plenty of water.</span></li>
+      <li><b>E-bikes</b><span>Summit Bike Share rents e-bikes for $7 an hour or $12 for two hours. Download the Summit Bike Share app.<details class="xtra"><summary>Guided e-bike tour</summary><ul class="xlist"><li>Urban Art and History E-Bike Tour through PC E-Bikes: $175 a person, starts at 3:30 PM and runs 2.5 hours. Book it yourself online.</li></ul></details></span></li>
+      <li><b>Shopping</b><span>Historic Main Street has locally owned shops, galleries, and boutiques, mostly between 4th and 9th Streets. Think handmade jewelry, western-inspired clothes, outdoor gear, and one-of-a-kind souvenirs.</span></li>
+      <li><b>Spa</b><span>Nearby: Spa Pendry at the Pendry Park City, and the Waldorf Astoria Spa.</span></li>
+    </ul>
+
     <h3 class="sub">During the week</h3>
     <ul class="facts">
       <li><b>My plan</b><span>Your whole week is at the top of the schedule. <button type="button" class="linkbtn" data-go="me">Go to My Plan</button></span></li>
       <li><b>Group chat</b><span>Retreat updates, photos, and ride shares happen in the WhatsApp group. <a class="xlink" href="https://chat.whatsapp.com/GL5firby3EM0xZo0OAshH9" target="_blank" rel="noopener">Join the WhatsApp group</a></span></li>
       <li><b>Travel + rooms</b><span>Questions about your room, arrival, or travel go to Laura Vander Neut, our travel advisor. <a class="xlink" href="tel:+13109823513">(310) 982-3513</a></span></li>
       <li><b>Time zone</b><span>Every time on this page is Mountain Time.</span></li>
-      <li><b>Thursday</b><span>Luggage storage is open Thursday morning until 2:00 PM. Look for signs in the lobby. The retreat ends at 11:00 AM.</span></li>
+      <li><b>Thursday</b><span>Check out before the 9:00 AM session unless you are staying Thursday night. Store your luggage in White Pine Parlor II, open until 2:00 PM. The retreat ends at 11:00 AM.</span></li>
       <li><b>Getting home</b><span>Rides to the airport start leaving from the front drive at 11:30 AM. Make your plan before Thursday: check the departure board in the lobby or post your flight time in the WhatsApp group to share a ride.</span></li>
     </ul>
   </section>
@@ -455,7 +475,7 @@ details[open] > summary .chev::after, button.card[aria-expanded="true"] .chev::a
       items: [
         { kind: "session", start: "13:00", end: "16:30", title: "Team Lead Working Time + Lunch", chips: ["Team Leads + execs", "White Pine Parlor 1"],
           who: "Doug, Tricia, Dan, and Jason",
-          desc: "Leadership time to prepare teams for the next cycle and align on what Team Leads carry into and out of the retreat." },
+          desc: "Lunch is served at 12:30 PM and the meeting starts at 1:00 PM. Leadership time to prepare teams for the next cycle and align on what Team Leads carry into and out of the retreat." },
         { kind: "session", start: "15:30", end: "17:30", title: "Welcome Table + Event Check-In", chips: ["Kokopelli Lobby"],
           desc: "Check in for the retreat and pick up your welcome bag, name tag, and lanyard. Arriving after 5:30? Your bag, name tag, and lanyard will be at the back of the Kokopelli Ballroom Tuesday morning." },
         { kind: "break", start: "16:00", end: "16:00", title: "Hotel check-in opens. The front desk can hold your bags until then." },
@@ -464,7 +484,8 @@ details[open] > summary .chev::after, button.card[aria-expanded="true"] .chev::a
           desc: "For coaches new to the firm since the last Fall Retreat, including our November coaches. Get on the gondola early, around 5:15, and meet Team Prolific at the top for an hour of hang out time before the retreat officially kicks off." },
         { kind: "main", start: "17:15", end: "22:30", hideEnd: true, word: "Belong", title: "Opening Night Reception", chips: [EVERYONE, "Red Pine Lodge"],
           desc: "Welcome, celebration, and recognition of the people who are new to our community. The gondola ride up takes about 8 minutes and it gets cold after dark, so bring a warm jacket. Please be up top by 6:30. Dinner starts at 6:45. Bring your ID for the bar. If it is too windy or there is lightning, dinner moves to the Kokopelli Ballroom.",
-          steps: [["17:15", "Gondola starts loading at the Red Pine Gondola base. It runs nonstop, so hop on anytime."], ["17:30", "Bar opens (cash bar)"], ["18:30", "Arrive by"], ["18:45", "Dinner"], ["20:00", "Karaoke"], ["21:00", "Program ends. Head down anytime."], ["22:15", "Last call"], ["22:30", "Venue closes. Last gondola down."]] }
+          steps: [["17:15", "Gondola starts loading at the Red Pine Gondola base. It runs nonstop, so hop on anytime."], ["17:30", "Bar opens (cash bar)"], ["18:30", "Arrive by"], ["18:45", "Dinner"], ["20:00", "Karaoke"], ["21:00", "Program ends. Head down anytime."], ["22:15", "Last call"], ["22:30", "Venue closes. Last gondola down."]],
+          extras: [["Getting up the mountain", ["Go straight to the base of the Sunrise Gondola, 3551 North Escala Court. Lift tickets are handed out as you board, so skip the ticket window.", "Come up early for the views. Please be at Red Pine Lodge by 6:30 PM.", "Dress warmly. You will be outside on the way up and down.", "Bring your ID for the bar, no matter your age.", "If wind or lightning stops the gondola, we will share the backup plan as soon as possible."]], ["Menu: Western BBQ buffet", ["Baby artisan lettuces with cucumbers, grape tomatoes, shredded carrots, and balsamic vinaigrette", "Seasonal fruit salad", "Potato salad with bacon and blue cheese", "BBQ quarter chicken", "Southern BBQ pulled pork", "Tangy cole slaw", "Baked potatoes with cheddar, butter, sour cream, and scallions", "Roasted seasonal vegetables", "Home-style mac and cheese", "Cornbread with honey butter", "Seasonal fruit cobbler with vanilla ice cream", "Coffee and tea"]]] }
       ]
     },
     {
@@ -485,7 +506,8 @@ details[open] > summary .chev::after, button.card[aria-expanded="true"] .chev::a
         { kind: "break", start: "11:45", end: "12:00", title: "Break" },
         { kind: "main", start: "12:00", end: "12:45", word: "Lunch", title: "Becoming a Million Dollar Coach Panel", chips: [EVERYONE, "Kokopelli Ballroom"],
           who: "Hosted by Jon", whoMore: "with Dan and Jason",
-          desc: "Lunch together at your POD tables. Everyone is in the room and select coaches join the panel. Use the questions at your table to make the morning personal." },
+          desc: "Lunch together at your POD tables. Everyone is in the room and select coaches join the panel. Use the questions at your table to make the morning personal.",
+          extras: [["Lunch menu: Southwest fajita buffet", ["Served in the Kokopelli Lobby starting at 11:45. Grab your food and get settled at your POD table.", "Corn tortilla chips with pico de gallo, salsa verde, and creamy cilantro dip", "Tri bean salad", "Warm flour tortillas and Spanish rice", "Ancho chili marinated chicken", "Marinated grilled flank steak", "Sautéed peppers and onions", "Shredded lettuce, sour cream, cotija cheese, and pickled vegetables", "Churros with chocolate caramel sauce"]]] },
         { kind: "break", start: "12:45", end: "13:00", title: "Head to your Round 1 breakout" },
         { kind: "round", id: "tue1", start: "13:00", end: "13:50", label: "Breakout Round 1", title: "Prescribed Architecture Focus",
           note: "Coaches: choose the room that matches your revenue reality, not the one that sounds most advanced. Assistants and ops leaders: Creating a Meta Performance Client Experience, unless your coach brings you to theirs.",
@@ -503,20 +525,21 @@ details[open] > summary .chev::after, button.card[aria-expanded="true"] .chev::a
         { kind: "round", id: "tue2", start: "14:10", end: "15:00", label: "Breakout Round 2", title: "Choose Your Own Adventure",
           note: "You have more agency in this round. Agency is not the same as preference. Sign up below so we can give each session the right size room.", open: true,
           options: [
-            { sid: "compete", room: "White Pine Parlor 2", title: "How Are You Different in the Competitive Landscape?", lead: "Thompson + Jennifer Tharp", for: "Coaches and operational leaders in marketing or business development",
+            { sid: "compete", room: "White Pine Parlor 1", title: "How Are You Different in the Competitive Landscape?", lead: "Thompson + Jennifer Tharp", for: "Coaches and operational leaders in marketing or business development",
               what: "Raise your conversion rate by knowing the competitive landscape." },
             { sid: "agents", room: "Kokopelli Parlor III", title: "Building Agents + Skills for Your Office", lead: "Chad Richards + Shannon Curran", for: "Coaches and operational leaders interested in AI and office automation",
               what: "Understand and start designing an AI agent that creates real leverage in your office." },
             { sid: "intake", room: "Kokopelli Ballroom", title: "The Art of Creating the Intake", lead: "Kristin Frade + Garland Hunt Jr.", for: "Coaches who want stronger intake and enrollment conversations",
               what: "Build an intake experience that creates clarity, trust, and momentum from the start." },
-            { sid: "silos", room: "White Pine Parlor 1", title: "Understanding (and Avoiding) Silos", lead: "Jean-Marie + Kelsey Carter", for: "Anyone whose role depends on cross-team collaboration",
+            { sid: "silos", room: "White Pine Parlor 2", title: "Understanding (and Avoiding) Silos", lead: "Jean-Marie + Kelsey Carter", for: "Anyone whose role depends on cross-team collaboration",
               what: "See how silos form and what they cost, and build habits and agreements for shared ownership." }
           ] },
         { kind: "session", start: "15:00", end: "17:30", title: "Free Time", chips: ["Optional activities"],
-          desc: "Rest, explore, or get outside. If you signed up for the long hike or horseback riding with Wasatch Adventure Group on your registration form, My Plan shows it. Horseback riding is weather permitting." },
-        { kind: "optional", start: "15:00", end: "17:30", title: "Long Hike + Climb", chips: ["Optional", "Sign-ups only", "Trail TBA"],
+          desc: "Rest, explore, or get outside. If you signed up for the long hike or horseback riding with Wasatch Adventure Group on your registration form, My Plan shows it.",
+          extras: [["Horseback riding", ["Only for the riders who signed up and got a confirmation email from Laura.", "Meet in the lobby. The ride to the stables leaves promptly at 3:00 PM.", "Weather permitting."]], ["Other ideas for the afternoon", ["Utah Olympic Park, e-bikes, Main Street shopping, and nearby spas are all in Free time in Park City, under Good to Know."]]] },
+        { kind: "optional", start: "15:00", end: "17:30", title: "Long Hike + Climb", chips: ["Optional", "Sign-ups only", "Holly's Trail"],
           who: "Rachel Baggech",
-          desc: "Likely Lake Blanche Trail: about 7 miles and 3,000 feet of elevation gain. For people who signed up on the registration form. Dress for it and bring water." },
+          desc: "Meet in the lobby at 3:00. Holly's Trail is 5.1 miles out and back, with about 761 feet of elevation gain, and takes about 2.5 hours. The trailhead is a short walk from the hotel. Since it is out and back, go as far as you like and turn around whenever it feels right. Wear layers and bring water." },
         { kind: "break", start: "16:00", end: "16:00", title: "Team dinner groups posted in the lobby. Find your group and your host." },
         { kind: "main", start: "17:30", end: "21:00", hideEnd: true, word: "Together", title: "Team Dinners", chips: [EVERYONE, "Park City restaurants", "All assistants at The Farm"],
           desc: "Coaches eat with their team in groups of about 10 at restaurants around Park City. All assistants, ops leaders, and staff eat together at The Farm. Your host has the reservation. Coaches pay for their own dinner. Community, connection, and rest are part of the architecture of this week.",
@@ -524,9 +547,9 @@ details[open] > summary .chev::after, button.card[aria-expanded="true"] .chev::a
           rowsCallout: ["Assistants and ops leaders: ", "you are all at The Farm in Canyons Village tonight, along with staff who are not on a coaching team. That includes assistants who support more than one coach. You are not with a coaching team tonight."],
           lookup: true,
           rowsTitle: "Where your team is eating",
-          rowsNote: "Find your team lead. The reservation is under their name. Tap a restaurant to open it in Maps. Most are in Old Town, about 15 minutes away by car. Carpool with teammates who have cars, or take a rideshare.",
+          rowsNote: "Find your team lead. The reservation is under their name. If the restaurant can't find it, give them Laura Vander Neut's name. Tap a restaurant to open it in Maps. They are all on Main Street in historic Park City, about 10 minutes away by car, and it is a great shopping area if you want to head in early. Carpool with teammates who have cars, or take a rideshare. Bring your ID: some restaurants won't seat you without one.",
           rows: [
-            ["Austin Walker", "Loma"], ["Shea Smith", "Shabu", "6:15 PM"], ["Jon Roberts", "350 Main Brasserie"],
+            ["Austin Walker + Shea Smith", "Shabu", "6:15 PM, both teams together"], ["David Miller + Jen Harris", "Loma", "New coaches dinner"], ["Jon Roberts", "350 Main Brasserie"],
             ["Ryan Farrell", "Butcher's Chop House"], ["Danny Bowers", "Cafe Terigo"], ["Becca Egger", "Tekila Mexican Grill"],
             ["Amanda Jaggard", "Loma"], ["Keely Ng", "Tekila Mexican Grill"], ["Kimber Liu", "The Eating Establishment"],
             ["Jennifer Tharp", "Le Depot"], ["Chad Richards", "350 Main Brasserie", "6:15 PM"], ["Rosanna Tomiuk", "Shabu"],
@@ -545,7 +568,8 @@ details[open] > summary .chev::after, button.card[aria-expanded="true"] .chev::a
         { kind: "main", start: "10:30", end: "11:45", word: "Own", title: "Ownership + Complaints", chips: [EVERYONE, "Kokopelli Ballroom"],
           who: "Jean-Marie + Andrew Ladd",
           desc: "Shorten the half-life of a complaint, find the care underneath it, and move from “someone should fix this” to “what is mine to do.”" },
-        { kind: "break", start: "11:45", end: "12:15", title: "Grab-and-go lunch, then head to your breakout" },
+        { kind: "break", start: "11:45", end: "12:15", title: "Grab-and-go lunch, then head to your breakout",
+          extras: [["Lunch menu: boxed lunches", ["Served in the Kokopelli Lobby. Take the box you picked on your registration form. Your order is in My Plan. Dietary restrictions are labeled separately.", "Roast beef and Swiss: roast beef, Swiss, arugula, pickled red onions, horseradish aioli, pumpernickel", "Turkey and Havarti: smoked turkey, Havarti, bacon, apricot marmalade, ciabatta", "Grain bowl: scarlet blend, ancient grains, shaved asparagus, red pepper, roasted sweet potatoes, garbanzo beans, avocado yuzu vinaigrette", "Every box comes with a Honeycrisp apple, a cookie, chips, and water."]]] },
         { kind: "round", id: "wed1", start: "12:15", end: "13:30", label: "Breakout Round 1 · Group A", title: "Deeper Development + Leadership",
           note: "What capability would most increase your ability to create what you are committed to? Leaders may direct you to a session based on need, role, and readiness. Sign up below so we can give each session the right size room.", open: true,
           options: [
@@ -570,13 +594,15 @@ details[open] > summary .chev::after, button.card[aria-expanded="true"] .chev::a
         { kind: "break", start: "14:50", end: "14:50", title: "Rest window. Protected time before GLO BALL." },
         { kind: "main", start: "17:45", end: "22:00", word: "Celebrate", title: "GLO BALL · Dinner + Awards", chips: [EVERYONE, "Kokopelli Ballroom", "Semi-formal"],
           desc: "Ten years of Novus Global. A night of celebration, community, and awards. Dress is semi-formal to black-tie optional. Cocktail attire is perfect, and if you own a ballgown, wear it. Everyone gets one drink ticket, then it is a cash bar.",
-          steps: [["17:45", "Doors open"], ["18:00", "Dinner"], ["19:15", "Program and awards begin"], ["22:00", "GLO BALL ends"]] }
+          steps: [["17:45", "Doors open"], ["18:00", "Dinner"], ["19:15", "Program and awards begin"], ["22:00", "GLO BALL ends"]],
+          extras: [["Menu: Utah's Own buffet", ["Lion House rolls (gluten-free rolls too) with whipped Utah honey butter", "Field greens salad with dried cherries, Beehive Seahive cheese, toasted pistachio, and honey vinaigrette", "Utah farmers cheese board with feta, goat cheese, wild boar salami, and crackers", "Seared steelhead with summer succotash, tomato jam, and herb beurre blanc", "Braised beef short ribs with Uinta stout jus, root vegetables, and pearl onions", "Vegetable fricassee with creamy polenta", "Steamed seasonal vegetables", "Baked potatoes with cheese, sour cream, and chives", "Campfire berry and peach cobbler"]]] }
       ]
     },
     {
       key: "thu", date: "2026-10-22", dow: "Thu", dayName: "Thursday", num: "22", title: "Notice",
       intro: "A final community-wide reflection. The retreat closes with the voices of the people in the room.",
       items: [
+        { kind: "break", start: "08:00", end: "08:00", title: "Check out before the 9:00 session, unless you are staying Thursday night. Store your luggage in White Pine Parlor II." },
         { kind: "main", start: "09:00", end: "09:50", word: "Practice", title: "Speakers Salon: Nobility in Practice", chips: [EVERYONE, "Kokopelli Ballroom"],
           who: "Sean Patton + Kristin Frade",
           desc: "Two Novus Global speakers, 18 minutes each, on the pillars of nobility. Then one discussion at your table." },
@@ -593,10 +619,11 @@ details[open] > summary .chev::after, button.card[aria-expanded="true"] .chev::a
             "What are you leaving committed to?"
           ],
           closer: "What are we now going to do with what we've seen?" },
-        { kind: "end", start: "11:00", end: "11:30", title: "Retreat ends. Luggage storage is open until 2:00 PM." },
+        { kind: "end", start: "11:00", end: "11:30", title: "Retreat ends. Luggage storage in White Pine Parlor II is open until 2:00 PM." },
         { kind: "end", start: "11:30", end: null, title: "Airport rides start leaving from the front drive. Check the departure board in the lobby or use the WhatsApp group to share a ride." },
         { kind: "session", start: "12:00", end: "13:30", title: "Culture Gym Working Lunch", chips: ["Culture Gym members only", "White Pine Parlor 1"],
-          desc: "The first in-person Culture Gym meeting of the year. Lunch is provided. The meeting wraps at 1:30, and you can leave the hotel for the airport at 2:00." }
+          desc: "The first in-person Culture Gym meeting of the year. Lunch is provided. The meeting wraps at 1:30, and you can leave the hotel for the airport at 2:00.",
+          extras: [["Lunch menu: boxed lunches", ["Grab your box in the Kokopelli Lobby, then head to White Pine Parlor 1. Take the option you picked. Your order is in My Plan. Dietary restrictions are labeled separately.", "Southwest grilled chicken salad wrap", "Italian sub", "Grain bowl", "Every box comes with a Honeycrisp apple, a cookie, chips, and water."]]] }
       ]
     }
   ];
@@ -708,8 +735,14 @@ details[open] > summary .chev::after, button.card[aria-expanded="true"] .chev::a
     var b = el("div", "body");
     li.appendChild(b);
 
+    function xtra(label, lines) {
+      var d = el("details", "xtra"); d.appendChild(el("summary", null, label));
+      var u = el("ul", "xlist"); lines.forEach(function (l) { u.appendChild(el("li", null, l)); }); d.appendChild(u);
+      return d;
+    }
     if (it.kind === "break" || it.kind === "end") {
       b.appendChild(el("h3", null, it.title));
+      if (it.extras) it.extras.forEach(function (x) { b.appendChild(xtra(x[0], x[1])); });
       it._chipHost = b;
       return li;
     }
@@ -747,7 +780,7 @@ details[open] > summary .chev::after, button.card[aria-expanded="true"] .chev::a
       return li;
     }
 
-    var hasMore = !!(it.desc || it.prompts || it.closer);
+    var hasMore = !!(it.desc || it.prompts || it.closer || it.extras);
     var cd = el(hasMore ? "details" : "div", "card"); b.appendChild(cd);
     var top = hasMore ? el("summary") : cd;
     if (hasMore) cd.appendChild(top);
@@ -783,6 +816,7 @@ details[open] > summary .chev::after, button.card[aria-expanded="true"] .chev::a
         more.appendChild(pl);
       }
       if (it.closer) more.appendChild(el("p", "closer", it.closer));
+      if (it.extras) it.extras.forEach(function (x) { more.appendChild(xtra(x[0], x[1])); });
       if (it.rows) {
         if (it.rowsCallout) {
           var cl = el("p", "dcall"); cl.appendChild(el("b", null, it.rowsCallout[0])); cl.appendChild(document.createTextNode(it.rowsCallout[1])); more.appendChild(cl);
