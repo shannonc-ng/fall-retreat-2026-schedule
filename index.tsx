@@ -396,7 +396,7 @@ ul.xlist { margin: 6px 0 2px; padding-left: 18px; display: grid; gap: 4px; color
     <h3 class="sub">Food + drinks</h3>
     <ul class="facts">
       <li><b>Breakfast</b><span>On your own each morning. In the hotel: First Tracks Café (grab-and-go and coffee) and in-room dining. The café is small, so go early on meeting mornings instead of right before sessions. Tuesday's 8:00 AM breakfast session is optional, so bring your own breakfast to it.<details class="xtra"><summary>More breakfast options</summary><ul class="xlist"><li>The Coffee Bar: walkable, inside Westgate Park City Resort</li><li>On DoorDash, about 2.5 to 3 miles away: Wasatch Bagel Cafe, Hill's Kitchen, Starbucks, Five5eeds, Great Harvest Bread, and Daily Rise Coffee</li><li>Have a mini fridge? DoorDash or Instacart can deliver groceries to the hotel.</li></ul></details></span></li>
-      <li><b>Food at the hotel</b><span>First Tracks Café, in-room dining, and the Red Tail Grill.<details class="xtra"><summary>Hours</summary><ul class="xlist"><li>First Tracks Café: grab-and-go and coffee, 6:30 AM to 2:00 PM daily</li><li>In-room dining: 7:00 to 11:00 AM and 5:00 to 9:00 PM</li><li>Red Tail Grill: 11:30 AM to 9:00 PM. Wednesday is its last day open for the season.</li></ul></details></span></li>
+      <li><b>Food at the hotel</b><span>First Tracks Café, in-room dining, and the Red Tail Grill.<details class="xtra"><summary>Hours</summary><ul class="xlist"><li>First Tracks Café: grab-and-go and coffee, 6:30 AM to 2:00 PM daily</li><li>In-room dining: 7:00 to 11:00 AM and 5:00 to 9:00 PM</li><li>Red Tail Grill: 11:30 AM to 9:00 PM. Wednesday is its last day open for the season. On Tuesday it stays open 9:00 to 11:00 PM just for us.</li></ul></details></span></li>
       <li><b>Coffee</b><span>Coffee, tea, soda, water, and sparkling water are set up by the Kokopelli Ballroom before the morning session each day and stay out until lunch. There is also a water station inside the Kokopelli Ballroom.</span></li>
       <li><b>Lunch</b><span>Provided Tuesday (buffet) and Wednesday (grab-and-go). On Wednesday, grab the boxed lunch you picked on your registration form. Your order is in My Plan. Gluten-free and dairy-free options are labeled. Tap a lunch in the schedule to see the menu. <button type="button" class="linkbtn" id="lunchBtn">See every order</button></span></li>
       <li><b>Dinner</b><span>Monday is a BBQ buffet at Red Pine Lodge. Tuesday, coaches eat with their teams around Park City and pay for their own dinner. All assistants, ops leaders, and staff eat together at The Farm in Canyons Village. Check My Plan at the top to see where you are going. Wednesday is the GLO BALL buffet.</span></li>
@@ -555,7 +555,9 @@ ul.xlist { margin: 6px 0 2px; padding-left: 18px; display: grid; gap: 4px; color
             ["Amanda Jaggard", "Loma"], ["Keely Ng", "Tekila Mexican Grill"], ["Kimber Liu", "The Eating Establishment"],
             ["Jennifer Tharp", "Le Depot"], ["Chad Richards", "350 Main Brasserie", "6:15 PM"], ["Rosanna Tomiuk", "Shabu"],
             ["All assistants, ops leaders + staff", "The Farm", "Private event, Canyons Village", "nolink"]
-          ] }
+          ] },
+        { kind: "optional", start: "21:00", end: "23:00", title: "After-Dinner Nightcap", chips: ["Optional", "Everyone welcome", "Red Tail Grill, 2nd floor"],
+          desc: "Head back from dinner and meet up at the Red Tail Grill on the hotel's second floor. The restaurant closes to the public at 9:00, and from 9:00 to 11:00 it is ours as a private event. Cash bar. Bring your ID." }
       ]
     },
     {
@@ -1054,6 +1056,7 @@ ul.xlist { margin: 6px 0 2px; padding-left: 18px; display: grid; gap: 4px; color
       if (HIKE.indexOf(n) > -1 && n !== "Rachel Baggech") acts.push("Long Hike + Climb with Rachel Baggech. Dress for it and bring water");
       if (RIDE_TUE.indexOf(n) > -1) acts.push("Horseback riding with Wasatch Adventure Group, weather permitting");
       if (n !== "Rachel Baggech") add(slot(1, "15:00"), row("Tue 3:00", acts.length ? acts.join(". ") + "." : "Free time until 5:30. Rest, explore, or get outside."));
+      add(slot(1, "21:00"), row("Tue 9:00", "After-Dinner Nightcap (optional) · Red Tail Grill, 2nd floor. Ours from 9 to 11."));
       add(slot(2, "14:50"), row("Wed 2:50", "Rest window. Protected time before GLO BALL."));
       var tbl = SEATS[n] ? "Table " + SEATS[n] + (SEATS[n] === 1 ? " (speakers table)" : "") : "";
       var leadAt = {};
