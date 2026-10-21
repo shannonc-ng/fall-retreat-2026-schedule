@@ -595,9 +595,9 @@ ul.xlist { margin: 6px 0 2px; padding-left: 18px; display: grid; gap: 4px; color
               what: "A longer-form session on how leaders manage themselves." }
           ] },
         { kind: "break", start: "14:50", end: "14:50", title: "Rest window. Protected time before GLO BALL." },
-        { kind: "main", start: "17:45", end: "22:00", word: "Celebrate", title: "GLO BALL · Dinner + Awards", chips: [EVERYONE, "Kokopelli Ballroom", "Semi-formal"],
+        { kind: "main", start: "17:30", end: "22:00", word: "Celebrate", title: "GLO BALL · Dinner + Awards", chips: [EVERYONE, "Kokopelli Ballroom", "Semi-formal"],
           desc: "Ten years of Novus Global. A night of celebration, community, and awards. Dress is semi-formal to black-tie optional. Cocktail attire is perfect, and if you own a ballgown, wear it. Everyone gets one drink ticket, then it is a cash bar. Seating is assigned: find your table number in My Plan at the top, or search your name.",
-          steps: [["17:45", "Doors open"], ["18:00", "Dinner"], ["19:15", "Program and awards begin"], ["22:00", "GLO BALL ends"]],
+          steps: [["17:30", "Drinks"], ["17:45", "Doors open"], ["18:00", "Dinner"], ["19:15", "Program and awards begin"], ["22:00", "GLO BALL ends"]],
           extras: [["Menu: Utah's Own buffet", ["Lion House rolls (gluten-free rolls too) with whipped Utah honey butter", "Field greens salad with dried cherries, Beehive Seahive cheese, toasted pistachio, and honey vinaigrette", "Utah farmers cheese board with feta, goat cheese, wild boar salami, and crackers", "Seared steelhead with summer succotash, tomato jam, and herb beurre blanc", "Braised beef short ribs with Uinta stout jus, root vegetables, and pearl onions", "Vegetable fricassee with creamy polenta", "Steamed seasonal vegetables", "Baked potatoes with cheese, sour cream, and chives", "Campfire berry and peach cobbler"]]] }
       ]
     },
