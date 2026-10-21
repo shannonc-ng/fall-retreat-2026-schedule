@@ -580,9 +580,9 @@ ul.xlist { margin: 6px 0 2px; padding-left: 18px; display: grid; gap: 4px; color
               what: "Practical teaching and application focused on how to use The Work around beliefs." },
             { sid: "belief", room: "Kokopelli Parlor III", title: "Belief Work", lead: "Laura Lyng + Amanda Jaggard", for: "12+ months in the firm with strong soul-line coaching proficiency",
               what: "Recognize when belief work is needed and work through it directly with a client." },
-            { sid: "sprint", room: "White Pine Parlor 2", title: "Sprint Work", lead: "Karina + Tricia", for: "Coaches who want to use sprints with their clients",
+            { sid: "sprint", room: "White Pine Parlor 1", title: "Sprint Work", lead: "Karina + Tricia", for: "Coaches who want to use sprints with their clients",
               what: "Designed to help coaches leverage sprint design with their clients." },
-            { sid: "mpl", room: "White Pine Parlor 1", title: "Meta Performance Leadership", lead: "Rosie + Dan", for: "Team Leads and operational leaders, plus anyone interested",
+            { sid: "mpl", room: "White Pine Parlor 2", title: "Meta Performance Leadership", lead: "Rosie + Dan", for: "Team Leads and operational leaders, plus anyone interested",
               what: "Strengthen leadership through the lens of Meta Performance and leading across the organization." }
           ] },
         { kind: "break", start: "13:30", end: "13:50", title: "Reset + move to Round 2" },
